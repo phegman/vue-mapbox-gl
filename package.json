@@ -19,6 +19,10 @@
     "prod": "npm run production",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phegman/mapbox-gl-vue.js.git"
+  },
   "keywords": [
     "Vue.js",
     "Mapbox",
