@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Mapbox GL Vue JS Example</title>
+        <meta name="description" content="A Vue JS component for Mapbox GL">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src='https://api.mapbox.com/mapbox-gl-js/v0.34.0/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v0.34.0/mapbox-gl.css' rel='stylesheet' />
+        <style>
+			#map {
+				width: 100%;
+				height: 500px;
+			}
+        </style>
+    </head>
+    <body>
+		<div id="app">
+			<mapbox 
+			access-token="pk.eyJ1IjoicGhlZ21hbiIsImEiOiJjaWdzdDJsMnkwNWx5dXhtMTdpMmFyczNrIn0.bcydH5kWOsWRL_eBfR_dtw"
+			:map-options="{
+				style: 'mapbox://styles/mapbox/light-v9',
+				center: [-96, 37.8],
+				zoom: 3
+			}"
+			:geolocate-control="{
+				show: true, 
+				position: 'top-left'
+			}"
+			:scale-control="{
+				show: true,
+				position: 'top-left'
+			}"
+			:fullscreen-control="{
+				show: true,
+				position: 'top-left'
+			}"
+			@map-load="mapLoaded"
+			@map-click="mapClicked"
+			@map-mousemove="mapMouseMoved"
+			>
+				
+			</mapbox>
+		</div><!-- /#app -->
+		<script src="https://unpkg.com/vue"></script>
+		<script src="/dist/app.js"></script>
+    </body>
+</html>
