@@ -18,6 +18,8 @@ npm install mapbox-gl-vue --save
 * [Popups](#popups)
 
 ### Setup
+This package does not include the Mapbox GL JS and CSS files. They need to be included in the `<head>` of your HTML file. See Mapbox GL quickstart guide here: [https://www.mapbox.com/mapbox-gl-js/api/](https://www.mapbox.com/mapbox-gl-js/api/)
+
 In your main js file:
 
 ```js
