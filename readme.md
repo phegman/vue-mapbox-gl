@@ -6,7 +6,9 @@ A Vue.js Mapbox component.
 
 ### NPM
 
-`npm install mapbox-gl-vue --save`
+```js
+npm install mapbox-gl-vue --save
+```
 
 ## Usage
 
@@ -18,37 +20,38 @@ A Vue.js Mapbox component.
 ### Setup
 In your main js file:
 
-```
+```js
 import Mapbox from 'mapbox-gl-vue';
 const app = new Vue({
-	el: '#app',
-	components: {
-		'mapbox': Mapbox
-	},
+    el: '#app',
+    components: {
+        'mapbox': Mapbox
+    },
 ]);
 ```
 In your HTML file:
 
-```
+```html
+<!-- #app -->
 <div id="app">
 	<mapbox></mapbox>
-</div><!-- /#app -->
+</div>
 ```
 
 #### Vueify
 If you are using [Vueify](https://github.com/vuejs/vueify) in your build script the Mapbox component can be included as follows: 
 
-```
+```js
 Vue.component('mapbox', require('mapbox-gl-vue/src/components/Mapbox.vue'));
 const app = new Vue({
-	el: '#app'
+    el: '#app'
 ]);
 ```
 
 #### CSS
 CSS needs to be added for the map to show up. The `#map` container needs a height and a width. Example:
 
-```
+```css
 #map {
 	width: 100%;
 	height: 500px;
@@ -124,7 +127,7 @@ More information about scale control here: [https://www.mapbox.com/mapbox-gl-js/
 More information about full screen control here: [https://www.mapbox.com/mapbox-gl-js/api/#fullscreencontrol](https://www.mapbox.com/mapbox-gl-js/api/#fullscreencontrol)
 
 #### Example
-```
+```vue
 <mapbox 
 access-token="your access token"
 :map-options="{
@@ -158,69 +161,70 @@ All events are passed the `map` object and the event if it has one.
 Example: 
 
 HTML File:
-```
+```html
+<!-- #app -->
 <div id="app">
 	<mapbox
 		@map-load="mapLoaded"
 		@map-click="mapClicked"
 	>
 	</mapbox>
-</div><!-- /#app -->
+</div>
 ```
 
 Main js file:
 
-```
+```js
 const app = new Vue({
-	el: '#app',
-	components: {
-		'mapbox': Mapbox
-	},
-	methods: {
-		mapLoaded(map) {
-			map.addLayer({
-				'id': 'points',
-				'type': 'symbol',
-				'source': {
-					'type': 'geojson',
-					'data': {
-						'type': 'FeatureCollection',
-						'features': [{
-							'type': 'Feature',
-							'geometry': {
-								'type': 'Point',
-								'coordinates': [-77.03238901390978, 38.913188059745586]
-							},
-							'properties': {
-								'title': 'Mapbox DC',
-								'icon': 'monument'
-							}
-						}, {
-							'type': 'Feature',
-							'geometry': {
-								'type': 'Point',
-								'coordinates': [-122.414, 37.776]
-							},
-							'properties': {
-								'title': 'Mapbox SF',
-								'icon': 'harbor'
-							}
-						}]
-					}
-				},
-				'layout': {
-					'icon-image': '{icon}-15',
-					'text-field': '{title}',
-					'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-					'text-offset': [0, 0.6],
-					'text-anchor': 'top'
-				}
-			});
-		},
-		mapClicked(map, e) {
-			alert('Map Clicked!');
-		},
-	}
+    el: '#app',
+    components: {
+        'mapbox': Mapbox
+    },
+    methods: {
+        mapLoaded(map) {
+            map.addLayer({
+                'id': 'points',
+                'type': 'symbol',
+                'source': {
+                    'type': 'geojson',
+                    'data': {
+                        'type': 'FeatureCollection',
+                        'features': [{
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': [-77.03238901390978, 38.913188059745586]
+                            },
+                            'properties': {
+                                'title': 'Mapbox DC',
+                                'icon': 'monument'
+                            }
+                        }, {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': [-122.414, 37.776]
+                            },
+                            'properties': {
+                                'title': 'Mapbox SF',
+                                'icon': 'harbor'
+                            }
+                        }]
+                    }
+                },
+                'layout': {
+                    'icon-image': '{icon}-15',
+                    'text-field': '{title}',
+                    'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+                    'text-offset': [0, 0.6],
+                    'text-anchor': 'top'
+                }
+            });
+        },
+        mapClicked(map, e) {
+            alert('Map Clicked!');
+        },
+    }
 ]);
 ```
 
@@ -230,84 +234,88 @@ Popups can be a little tricky if you are trying to use Vue directives inside the
 
 Main js file:
 
-```
+```js
 const app = new Vue({
-	el: '#app',
-	methods: {
-		mapLoaded(map) {
-			map.addLayer({
-				'id': 'points',
-				'type': 'symbol',
-				'source': {
-					'type': 'geojson',
-					'data': {
-						'type': 'FeatureCollection',
-						'features': [{
-							'type': 'Feature',
-							'geometry': {
-								'type': 'Point',
-								'coordinates': [-77.03238901390978, 38.913188059745586]
-							},
-							'properties': {
-								'title': 'Mapbox DC',
-								'icon': 'monument'
-							}
-						}, {
-							'type': 'Feature',
-							'geometry': {
-								'type': 'Point',
-								'coordinates': [-122.414, 37.776]
-							},
-							'properties': {
-								'title': 'Mapbox SF',
-								'icon': 'harbor'
-							}
-						}]
-					}
-				},
-				'layout': {
-					'icon-image': '{icon}-15',
-					'text-field': '{title}',
-					'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-					'text-offset': [0, 0.6],
-					'text-anchor': 'top'
-				}
-			});
-		},
-		mapClicked(map, e) {
-			this.addPopUp(map, e);
-		},
-		mapMouseMoved(map, e) {
-			const features = map.queryRenderedFeatures(e.point, { layers: ['points'] });
-			map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
-		},
-		addPopUp(map, e) {
-			const features = map.queryRenderedFeatures(e.point, { layers: ['points'] });
-			if (!features.length) {
-				return;
-			}
+    el: '#app',
+    methods: {
+        mapLoaded(map) {
+            map.addLayer({
+                'id': 'points',
+                'type': 'symbol',
+                'source': {
+                    'type': 'geojson',
+                    'data': {
+                        'type': 'FeatureCollection',
+                        'features': [{
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': [-77.03238901390978, 38.913188059745586]
+                            },
+                            'properties': {
+                                'title': 'Mapbox DC',
+                                'icon': 'monument'
+                            }
+                        }, {
+                            'type': 'Feature',
+                            'geometry': {
+                                'type': 'Point',
+                                'coordinates': [-122.414, 37.776]
+                            },
+                            'properties': {
+                                'title': 'Mapbox SF',
+                                'icon': 'harbor'
+                            }
+                        }]
+                    }
+                },
+                'layout': {
+                    'icon-image': '{icon}-15',
+                    'text-field': '{title}',
+                    'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+                    'text-offset': [0, 0.6],
+                    'text-anchor': 'top'
+                }
+            });
+        },
+        mapClicked(map, e) {
+            this.addPopUp(map, e);
+        },
+        mapMouseMoved(map, e) {
+            const features = map.queryRenderedFeatures(e.point, {
+                layers: ['points']
+            });
+            map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
+        },
+        addPopUp(map, e) {
+            const features = map.queryRenderedFeatures(e.point, {
+                layers: ['points']
+            });
+            if (!features.length) {
+                return;
+            }
 
-			const feature = features[0];
+            const feature = features[0];
 
-			const popupContent = Vue.extend({
-				template: '<button @click="popupClicked">Click Me!</button>',
-				methods: {
-					popupClicked() {
-						alert('Popup Clicked!');
-					},
-				}
-			});
+            const popupContent = Vue.extend({
+                template: '<button @click="popupClicked">Click Me!</button>',
+                methods: {
+                    popupClicked() {
+                        alert('Popup Clicked!');
+                    },
+                }
+            });
 
-			// Populate the popup and set its coordinates
-			// based on the feature found.
-			const popup = new mapboxgl.Popup()
-				.setLngLat(feature.geometry.coordinates)
-				.setHTML('<div id="vue-popup-content"></div>')
-				.addTo(map);
+            // Populate the popup and set its coordinates
+            // based on the feature found.
+            const popup = new mapboxgl.Popup()
+                .setLngLat(feature.geometry.coordinates)
+                .setHTML('<div id="vue-popup-content"></div>')
+                .addTo(map);
 
-			new popupContent().$mount('#vue-popup-content');
-		}
-	}
+            new popupContent().$mount('#vue-popup-content');
+        }
+    }
 });
 ```
 
