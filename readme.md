@@ -20,6 +20,8 @@ npm install mapbox-gl-vue --save
 ### Setup
 This package does not include the Mapbox GL JS and CSS files. They need to be included in the `<head>` of your HTML file. See Mapbox GL quickstart guide here: [https://www.mapbox.com/mapbox-gl-js/api/](https://www.mapbox.com/mapbox-gl-js/api/)
 
+If you decide to pull in Mapbox Gl via a npm and use a module bundler you need to require it globally from your main js file like this: `window.mapboxgl = require('mapbox-gl');`
+
 In your main js file:
 
 ```js
