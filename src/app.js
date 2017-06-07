@@ -1,7 +1,10 @@
-Vue.component('mapbox', require('./components/Mapbox.vue'));
+import Mapbox from './components/Mapbox.js';
 
 const app = new Vue({
 	el: '#app',
+	components: {
+		'mapbox': Mapbox
+	},
 	methods: {
 		mapLoaded(map) {
 			map.addLayer({
