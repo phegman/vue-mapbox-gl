@@ -69,7 +69,9 @@
 				mapboxgl.accessToken = this.accessToken;
 
 				//Add container to options object
-				this.mapOptions.container = 'map';
+				if (!this.mapOptions.hasOwnProperty('container')) {
+					this.mapOptions.container = 'map';
+				}
 
 				//New Mapbox Instance
 				const map = new mapboxgl.Map(this.mapOptions);
