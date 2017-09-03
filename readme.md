@@ -80,6 +80,8 @@ Your access token is required for Mapbox to work. It can be obtained in the Mapb
 
 Overview of available Mapbox options can be found here: [https://www.mapbox.com/mapbox-gl-js/api/#map](https://www.mapbox.com/mapbox-gl-js/api/#map)
 
+mapOptions.container will default to 'map' (giving the container and id of 'map'). If you want to change this or use multiple map components on the same page simply set mapOptions.container.
+
 ---
 
 `nav-control`  
@@ -234,7 +236,7 @@ const app = new Vue({
 
 ### Popups
 
-Popups can be a little tricky if you are trying to use Vue directives inside the popup content. This is because the popups are added to the DOM by Mapbox and not compiled by Vue. To get around this you can use extend Vue to create a new Component and then mount that to the popup. Below is an example:
+Popups can be a little tricky if you are trying to use Vue directives inside the popup content. This is because the popups are added to the DOM by Mapbox and not compiled by Vue. To get around this you can extend Vue to create a new Component and then mount that to the popup. Below is an example:
 
 Main js file:
 
@@ -322,6 +324,7 @@ const app = new Vue({
     }
 });
 ```
+The `popupContent` component can also be extracted to a separate .vue file to clean things up.
 
 ## Support
 
