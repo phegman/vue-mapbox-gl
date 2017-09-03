@@ -1,3 +1,7 @@
+<template>
+	<div :id="(mapOptions.hasOwnProperty('container') ? mapOptions.container : 'map')"></div>
+</template>
+
 <script>
 	export default {
 		data () {
@@ -319,7 +323,3 @@
 		},
 	};
 </script>
-
-<template>
-	<div id="map"></div>
-</template>

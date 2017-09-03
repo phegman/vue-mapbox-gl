@@ -1,5 +1,5 @@
 export default {
-	template: '<div id="map"></div>',
+	template: '<div :id="(mapOptions.hasOwnProperty(\'container\') ? mapOptions.container : \'map\')"></div>',
 	data () {
 		return {
 

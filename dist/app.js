@@ -73,7 +73,7 @@
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
-	template: '<div id="map"></div>',
+	template: '<div :id="(mapOptions.hasOwnProperty(\'container\') ? mapOptions.container : \'map\')"></div>',
 	data () {
 		return {
 
