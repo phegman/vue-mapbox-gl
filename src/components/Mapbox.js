@@ -76,6 +76,9 @@ export default {
 			//New Mapbox Instance
 			const map = new mapboxgl.Map(this.mapOptions);
 
+			//Emit init event passing map object
+			this.$emit('map-init', map);
+
 			return map;
 		},
 		registerEvents (map) {

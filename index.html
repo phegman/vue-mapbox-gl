@@ -8,7 +8,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <script src='https://api.mapbox.com/mapbox-gl-js/v0.34.0/mapbox-gl.js'></script>
+        <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.js'></script>
         <link href='https://api.mapbox.com/mapbox-gl-js/v0.34.0/mapbox-gl.css' rel='stylesheet' />
+        <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v0.19.0/mapbox-gl-draw.css' type='text/css' />
         <style>
 			#map {
 				width: 100%;
@@ -37,6 +39,7 @@
 					show: true,
 					position: 'top-left'
 				}"
+				@map-init="mapInit"
 				@map-load="mapLoaded"
 				@map-click="mapClicked"
 				@map-mousemove="mapMouseMoved">
