@@ -234,6 +234,8 @@ const app = new Vue({
 ]);
 ```
 
+`map-init` : This event is fired when the map is initialized. It can be used to integrate plugins such as Mapbox Draw.
+
 ### Popups
 
 Popups can be a little tricky if you are trying to use Vue directives inside the popup content. This is because the popups are added to the DOM by Mapbox and not compiled by Vue. To get around this you can extend Vue to create a new Component and then mount that to the popup. Below is an example:

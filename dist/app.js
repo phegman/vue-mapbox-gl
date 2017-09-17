@@ -150,6 +150,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			//New Mapbox Instance
 			const map = new mapboxgl.Map(this.mapOptions);
 
+			//Emit init event passing map object
+			this.$emit('map-init', map);
+
 			return map;
 		},
 		registerEvents (map) {
@@ -412,6 +415,11 @@ var app = new Vue({
 		'mapbox': _Mapbox2.default
 	},
 	methods: {
+		mapInit: function mapInit(map) {
+			var Draw = new MapboxDraw();
+
+			map.addControl(Draw);
+		},
 		mapLoaded: function mapLoaded(map) {
 			map.addLayer({
 				'id': 'points',

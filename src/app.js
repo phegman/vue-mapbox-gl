@@ -6,6 +6,11 @@ const app = new Vue({
 		'mapbox': Mapbox
 	},
 	methods: {
+		mapInit(map) {
+			const Draw = new MapboxDraw();
+
+			map.addControl(Draw);
+		},
 		mapLoaded(map) {
 			map.addLayer({
 				'id': 'points',
