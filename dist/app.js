@@ -472,9 +472,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var app = new Vue({
 	el: '#app',
-	components: {
-		'mapbox': _Mapbox2.default
-	},
+	components: { Mapbox: _Mapbox2.default },
 	methods: {
 		mapInit: function mapInit(map) {
 			var Draw = new MapboxDraw();
