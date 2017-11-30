@@ -29,9 +29,7 @@ In your main js file:
 import Mapbox from 'mapbox-gl-vue';
 const app = new Vue({
   el: '#app',
-  components: {
-    'mapbox': Mapbox
-  },
+  components: { Mapbox },
 ]);
 ```
 In your HTML file:
