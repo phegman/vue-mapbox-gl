@@ -1,22 +1,44 @@
-var path = require('path');
+const path = require('path');
+const webpack = require('webpack');
+const merge = require('webpack-merge');
 
-module.exports = {
-	entry: './src/app.js',
+var config = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'app.js'
+		filename: '[name].js'
 	},
 	module: {
 		rules: [
 			{
-				include: path.resolve(__dirname, 'src/app.js'),
-				use: {
-					loader: 'babel-loader',
-					options: {
-						presets: ['env']
-					}
+				test: /\.vue$/,
+				loader: 'vue-loader',
+			},
+			{
+				test: /\.js$/,
+				loader: 'babel-loader',
+				options: {
+					presets: ['env']
 				}
 			}
 		]
 	}
 };
+
+module.exports = [
+	merge(config, {
+		entry: {
+			app: './src/app.js',
+		},
+	}),
+	merge(config, {
+		entry: {
+			Mapbox: './src/components/Mapbox.vue',
+		},
+		output: {
+			filename: 'Mapbox.js',
+			libraryTarget: 'umd',
+			library: 'mapbox-gl-vue',
+			umdNamedDefine: true
+		},
+	}),
+];
