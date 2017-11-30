@@ -231,7 +231,7 @@ const app = new Vue({
 
 The "User Interface" plugins ([https://www.mapbox.com/mapbox-gl-js/plugins/](https://www.mapbox.com/mapbox-gl-js/plugins/)) can be integrated using the `map-init` event that is fired when Mapbox is initialized. Below is an example:
 
-```
+```html
 <mapbox
   access-token="your access token"
   :map-options="{
@@ -255,7 +255,7 @@ The "User Interface" plugins ([https://www.mapbox.com/mapbox-gl-js/plugins/](htt
 </mapbox>
 ```
 
-```
+```js
 import Mapbox from 'mapbox-gl-vue';
 const app = new Vue({
   el: '#app',
