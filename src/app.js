@@ -2,9 +2,7 @@ import Mapbox from './components/Mapbox.vue';
 
 const app = new Vue({
 	el: '#app',
-	components: {
-		'mapbox': Mapbox
-	},
+	components: { Mapbox },
 	methods: {
 		mapInit(map) {
 			const Draw = new MapboxDraw();

@@ -174,9 +174,7 @@ Main js file:
 ```js
 const app = new Vue({
   el: '#app',
-  components: {
-    'mapbox': Mapbox
-  },
+  components: { Mapbox },
   methods: {
     mapLoaded(map) {
       map.addLayer({
@@ -259,9 +257,7 @@ The "User Interface" plugins ([https://www.mapbox.com/mapbox-gl-js/plugins/](htt
 import Mapbox from 'mapbox-gl-vue';
 const app = new Vue({
   el: '#app',
-  components: {
-    'mapbox': Mapbox
-  },
+  components: { Mapbox },
   methods: {
     mapInitialized(map) {
       const Draw = new MapboxDraw();
@@ -281,6 +277,7 @@ Main js file:
 ```js
 const app = new Vue({
   el: '#app',
+  components: { Mapbox },
   methods: {
     mapLoaded(map) {
       map.addLayer({
