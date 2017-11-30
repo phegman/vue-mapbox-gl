@@ -12,10 +12,13 @@
     "eslint-config-vue": "^2.0.2",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-vue": "^2.0.1",
-    "webpack": "^2.6.1"
+    "vue-loader": "^13.5.0",
+    "vue-template-compiler": "^2.5.9",
+    "webpack": "^2.6.1",
+    "webpack-merge": "^4.1.1"
   },
   "scripts": {
-    "build": "babel src/components/Mapbox.js -o dist/Mapbox.js; node_modules/.bin/webpack",
+    "build": "node_modules/.bin/webpack",
     "prepublishOnly": "npm run build"
   },
   "repository": {

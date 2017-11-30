@@ -1,4 +1,4 @@
-import Mapbox from './components/Mapbox.js';
+import Mapbox from './components/Mapbox.vue';
 
 const app = new Vue({
 	el: '#app',
