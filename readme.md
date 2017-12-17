@@ -9,6 +9,26 @@ A Vue.js Mapbox component.
 ```js
 npm install mapbox-gl-vue --save
 ```
+### Yarn
+
+```js
+yarn add mapbox-gl-vue
+```
+### Including Mapbox GL JS
+
+This package does not include the Mapbox GL JS and CSS files. See Mapbox GL quickstart guide here: [https://www.mapbox.com/mapbox-gl-js/api/](https://www.mapbox.com/mapbox-gl-js/api/)
+
+#### Importing Mapbox GL JS with Webpack
+
+If you decide to include Mapbox GL JS by importing it with Webpack you should use [Shimming](https://webpack.js.org/guides/shimming/) for it to work correctly. Add the below to your `webpack.config.js` file:
+
+```js
+plugins: [
+  new webpack.ProvidePlugin({
+    mapboxgl: 'mapbox-gl'
+  })
+]
+```
 
 ## Usage
 
@@ -19,11 +39,8 @@ npm install mapbox-gl-vue --save
 * [Popups](#popups)
 
 ### Setup
-This package does not include the Mapbox GL JS and CSS files. They need to be included in the `<head>` of your HTML file. See Mapbox GL quickstart guide here: [https://www.mapbox.com/mapbox-gl-js/api/](https://www.mapbox.com/mapbox-gl-js/api/)
 
-If you decide to pull in Mapbox Gl via npm and use a module bundler you need to require it globally from your main js file like this: `window.mapboxgl = require('mapbox-gl');`
-
-In your main js file:
+In the file you will be including the component:
 
 ```js
 import Mapbox from 'mapbox-gl-vue';
@@ -42,6 +59,7 @@ In your HTML file:
 ```
 
 #### CSS
+
 CSS needs to be added for the map to show up. The `#map` container needs a height and a width. Example:
 
 ```css
@@ -122,6 +140,7 @@ More information about scale control here: [https://www.mapbox.com/mapbox-gl-js/
 More information about full screen control here: [https://www.mapbox.com/mapbox-gl-js/api/#fullscreencontrol](https://www.mapbox.com/mapbox-gl-js/api/#fullscreencontrol)
 
 #### Example
+
 ```vue
 <mapbox 
 access-token="your access token"
@@ -147,7 +166,7 @@ access-token="your access token"
 
 ### Events
 
-All Mapbox GL events are available for use. For a list of events look here: [https://www.mapbox.com/mapbox-gl-js/api/#map.event:resize](https://www.mapbox.com/mapbox-gl-js/api/#map.event:resize)
+All Mapbox GL JS events are available for use. For a list of events look here: [https://www.mapbox.com/mapbox-gl-js/api/#map.event:resize](https://www.mapbox.com/mapbox-gl-js/api/#map.event:resize)
 
 Events can be used by prepending `map-` to the beginning of the Mapbox event. For example for the Mapbox `click` event `@map-click` can be used.
 
