@@ -16,7 +16,7 @@ yarn add mapbox-gl-vue
 ```
 ### Including Mapbox GL JS
 
-This package does not include the Mapbox GL JS and CSS files. See Mapbox GL quickstart guide here: [https://www.mapbox.com/mapbox-gl-js/api/](https://www.mapbox.com/mapbox-gl-js/api/)
+This package does not include the Mapbox GL JS and CSS files. See Mapbox GL JS quickstart guide here: [https://www.mapbox.com/mapbox-gl-js/api/](https://www.mapbox.com/mapbox-gl-js/api/)
 
 #### Importing Mapbox GL JS with Webpack
 
