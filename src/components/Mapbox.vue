@@ -6,7 +6,7 @@
 	export default {
 		data () {
 			return {
-
+				_map: null
 			};
 		},
 		props: {
@@ -60,7 +60,7 @@
 		mounted () {
 			//Initialze Map
 			const map = this.mapInit();
-
+			this._map = map;
 			//Add Controls to map
 			this.addControls(map);
 
@@ -324,5 +324,8 @@
 
 			}
 		},
+		beforeDestroy() { 
+			this._map.remove();
+		}
 	};
 </script>
