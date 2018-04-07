@@ -1,5 +1,7 @@
 # Mapbox GL JS Vue.js
 
+[![npm](https://img.shields.io/npm/dw/localeval.svg)](https://www.npmjs.com/package/mapbox-gl-vue)
+
 A Vue.js Mapbox component.  
 
 ## Installation
