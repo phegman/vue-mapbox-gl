@@ -136,7 +136,9 @@ Object.defineProperty(exports, "__esModule", {
 
 exports.default = {
 	data: function data() {
-		return {};
+		return {
+			_map: null
+		};
 	},
 
 	props: {
@@ -190,6 +192,9 @@ exports.default = {
 	mounted: function mounted() {
 		//Initialze Map
 		var map = this.mapInit();
+
+		//Save map object to data
+		this._map = map;
 
 		//Add Controls to map
 		this.addControls(map);
@@ -454,6 +459,9 @@ exports.default = {
 				map.addControl(fullscreen, this.fullscreenControl.position);
 			}
 		}
+	},
+	beforeDestroy: function beforeDestroy() {
+		this._map.remove();
 	}
 };
 

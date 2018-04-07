@@ -60,7 +60,10 @@
 		mounted () {
 			//Initialze Map
 			const map = this.mapInit();
+
+			//Save map object to data
 			this._map = map;
+
 			//Add Controls to map
 			this.addControls(map);
 
