@@ -115,12 +115,12 @@
 				});
 
 				//Map Webgl Context Lost 
-				map.on('resize', e => {
+				map.on('webglcontextlost', e => {
 					this.$emit('map-webglcontextlost', map, e);
 				});
 
 				//Map Webgl Context Restored
-				map.on('resize', e => {
+				map.on('webglcontextrestored', e => {
 					this.$emit('map-webglcontextrestored', map, e);
 				});
 
@@ -140,11 +140,6 @@
 				});
 
 				//Map Move Start
-				map.on('movestart', e => {
-					this.$emit('map-movestart', map, e);
-				});
-
-				//Map Touch Move
 				map.on('movestart', e => {
 					this.$emit('map-movestart', map, e);
 				});
@@ -219,9 +214,29 @@
 					this.$emit('map-mousedown', map, e);
 				});
 
+				//Map Mouse Over
+				map.on('mouseover', e => {
+					this.$emit('map-mouseover', map, e);
+				});
+
+				//Map Mouse Enter
+				map.on('mouseenter', e => {
+					this.$emit('map-mouseenter', map, e);
+				});
+
+				//Map Mouse Leave
+				map.on('mouseleave', e => {
+					this.$emit('map-mouseleave', map, e);
+				});
+
 				//Map Touch End
 				map.on('touchend', e => {
 					this.$emit('map-touchend', map, e);
+				});
+
+				//Map Touch Move
+				map.on('touchmove', e => {
+					this.$emit('map-touchmove', map, e);
 				});
 
 				//Map Zoom Start
