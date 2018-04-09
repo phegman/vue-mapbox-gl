@@ -1,6 +1,6 @@
-# Mapbox GL JS Vue.js
-
 [![npm](https://img.shields.io/npm/dw/localeval.svg)](https://www.npmjs.com/package/mapbox-gl-vue)
+
+# Mapbox GL JS Vue.js
 
 A Vue.js Mapbox component.  
 
