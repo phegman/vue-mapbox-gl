@@ -89,7 +89,7 @@ Your access token is required for Mapbox to work. It can be obtained in the Mapb
 
 Overview of available Mapbox options can be found here: [https://www.mapbox.com/mapbox-gl-js/api/#map](https://www.mapbox.com/mapbox-gl-js/api/#map)
 
-mapOptions.container will default to 'map' (giving the container and id of 'map'). If you want to change this or use multiple map components on the same page simply set mapOptions.container.
+mapOptions.container will default to 'map' (giving the container an id of 'map'). If you want to change this or use multiple map components on the same page simply set mapOptions.container.
 
 ---
 
