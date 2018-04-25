@@ -311,16 +311,6 @@ exports.default = {
 				_this.$emit('map-mouseover', map, e);
 			});
 
-			//Map Mouse Enter
-			map.on('mouseenter', function (e) {
-				_this.$emit('map-mouseenter', map, e);
-			});
-
-			//Map Mouse Leave
-			map.on('mouseleave', function (e) {
-				_this.$emit('map-mouseleave', map, e);
-			});
-
 			//Map Touch End
 			map.on('touchend', function (e) {
 				_this.$emit('map-touchend', map, e);

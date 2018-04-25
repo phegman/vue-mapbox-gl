@@ -219,16 +219,6 @@
 					this.$emit('map-mouseover', map, e);
 				});
 
-				//Map Mouse Enter
-				map.on('mouseenter', e => {
-					this.$emit('map-mouseenter', map, e);
-				});
-
-				//Map Mouse Leave
-				map.on('mouseleave', e => {
-					this.$emit('map-mouseleave', map, e);
-				});
-
 				//Map Touch End
 				map.on('touchend', e => {
 					this.$emit('map-touchend', map, e);

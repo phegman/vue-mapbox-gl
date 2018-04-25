@@ -244,6 +244,8 @@ const app = new Vue({
 
 `map-init` : This event is fired when the map is initialized. It can be used to integrate plugins such as Mapbox Draw.
 
+`mouseenter` and `mouseleave` Mapbox GL JS events are the only events that do not fire a Vue event. This is due to the fact that they require using the three-argument version `map.on()` to specify the desired layer. These events can still be called when the `load` event is fired.
+
 ### Plugins
 
 The "User Interface" plugins ([https://www.mapbox.com/mapbox-gl-js/plugins/](https://www.mapbox.com/mapbox-gl-js/plugins/)) can be integrated using the `map-init` event that is fired when Mapbox is initialized. Below is an example:
