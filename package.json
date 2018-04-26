@@ -1,6 +1,6 @@
 {
   "name": "mapbox-gl-vue",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "A Vue.js component for Mapbox GL js",
   "main": "dist/Mapbox.js",
   "devDependencies": {
