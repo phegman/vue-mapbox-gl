@@ -75,17 +75,17 @@ CSS needs to be added for the map to show up. The `#map` container needs a heigh
 
 Vue.js Documentation [https://vuejs.org/v2/guide/components.html#Props](https://vuejs.org/v2/guide/components.html#Props)
 
-`access-token`
-Type: `String`
-Required: `True`
+`access-token`  
+	Type: `String`  
+	Required: `True`
 
 Your access token is required for Mapbox to work. It can be obtained in the Mapbox Studio dashboard
 
 ---
 
-`map-options`
-Type: `Object`
-Required: `True`
+`map-options`  
+	Type: `Object`  
+	Required: `True`
 
 Overview of available Mapbox options can be found here: [https://www.mapbox.com/mapbox-gl-js/api/#map](https://www.mapbox.com/mapbox-gl-js/api/#map)
 
@@ -93,51 +93,51 @@ mapOptions.container will default to 'map' (giving the container an id of 'map')
 
 ---
 
-`nav-control`
-Type: `Object`
-Required: `False`
-Default: ```{
-  show: true,
-  position: 'top-right'
-}```
+`nav-control`  
+	Type: `Object`  
+	Required: `False`  
+	Default: ```{
+		show: true,
+		position: 'top-right'
+	}```
 
 More information about navigation control here: [https://www.mapbox.com/mapbox-gl-js/api/#navigationcontrol](https://www.mapbox.com/mapbox-gl-js/api/#navigationcontrol)
 
 ---
 
-`geolocate-control`
-Type: `Object`
-Required: `False`
-Default: ```{
-  show: false,
-  position: 'top-left',
-  options: {}
-}```
+`geolocate-control`  
+	Type: `Object`  
+	Required: `False`  
+	Default: ```{
+		show: false,
+		position: 'top-left',
+		options: {}
+	}```
 
 More information about geolocate control here: [https://www.mapbox.com/mapbox-gl-js/api/#geolocatecontrol](https://www.mapbox.com/mapbox-gl-js/api/#geolocatecontrol)
 
 ---
 
-`scale-control`
-Type: `Object`
-Required: `False`
-Default: ```{
-  show: false,
-  position: 'top-left',
-  options: {}
-}```
+`scale-control`  
+	Type: `Object`  
+	Required: `False`  
+	Default: ```{
+		show: false,
+		position: 'top-left',
+		options: {}
+	}```
 
 More information about scale control here: [https://www.mapbox.com/mapbox-gl-js/api/#scalecontrol](https://www.mapbox.com/mapbox-gl-js/api/#scalecontrol)
 
 ---
 
-`fullscreen-control`
-Type: `Object`
-Required: `False`
-Default: ```{
-  show: false,
-  position: 'top-right'
-}```
+`fullscreen-control`  
+	Type: `Object`  
+	Required: `False`  
+	Default: ```{
+		show: false,
+		position: 'top-right'
+	}```
 
 More information about full screen control here: [https://www.mapbox.com/mapbox-gl-js/api/#fullscreencontrol](https://www.mapbox.com/mapbox-gl-js/api/#fullscreencontrol)
 
