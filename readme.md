@@ -2,7 +2,7 @@
 
 # Mapbox GL JS Vue.js
 
-A Vue.js Mapbox component.  
+A Vue.js Mapbox component.
 
 ## Installation
 
@@ -49,7 +49,7 @@ import Mapbox from 'mapbox-gl-vue';
 const app = new Vue({
   el: '#app',
   components: { Mapbox },
-]);
+});
 ```
 In your HTML file:
 
@@ -75,16 +75,16 @@ CSS needs to be added for the map to show up. The `#map` container needs a heigh
 
 Vue.js Documentation [https://vuejs.org/v2/guide/components.html#Props](https://vuejs.org/v2/guide/components.html#Props)
 
-`access-token`  
-	Type: `String`  
+`access-token`
+	Type: `String`
 	Required: `True`
 
 Your access token is required for Mapbox to work. It can be obtained in the Mapbox Studio dashboard
 
 ---
 
-`map-options`  
-	Type: `Object`  
+`map-options`
+	Type: `Object`
 	Required: `True`
 
 Overview of available Mapbox options can be found here: [https://www.mapbox.com/mapbox-gl-js/api/#map](https://www.mapbox.com/mapbox-gl-js/api/#map)
@@ -93,9 +93,9 @@ mapOptions.container will default to 'map' (giving the container an id of 'map')
 
 ---
 
-`nav-control`  
-	Type: `Object`  
-	Required: `False`  
+`nav-control`
+	Type: `Object`
+	Required: `False`
 	Default: ```{
 		show: true,
 		position: 'top-right'
@@ -105,9 +105,9 @@ More information about navigation control here: [https://www.mapbox.com/mapbox-g
 
 ---
 
-`geolocate-control`  
-	Type: `Object`  
-	Required: `False`  
+`geolocate-control`
+	Type: `Object`
+	Required: `False`
 	Default: ```{
 		show: false,
 		position: 'top-left',
@@ -118,9 +118,9 @@ More information about geolocate control here: [https://www.mapbox.com/mapbox-gl
 
 ---
 
-`scale-control`  
-	Type: `Object`  
-	Required: `False`  
+`scale-control`
+	Type: `Object`
+	Required: `False`
 	Default: ```{
 		show: false,
 		position: 'top-left',
@@ -131,9 +131,9 @@ More information about scale control here: [https://www.mapbox.com/mapbox-gl-js/
 
 ---
 
-`fullscreen-control`  
-	Type: `Object`  
-	Required: `False`  
+`fullscreen-control`
+	Type: `Object`
+	Required: `False`
 	Default: ```{
 		show: false,
 		position: 'top-right'
@@ -144,7 +144,7 @@ More information about full screen control here: [https://www.mapbox.com/mapbox-
 #### Example
 
 ```vue
-<mapbox 
+<mapbox
 access-token="your access token"
 :map-options="{
   style: 'mapbox://styles/mapbox/light-v9',
@@ -152,7 +152,7 @@ access-token="your access token"
   zoom: 3
 }"
 :geolocate-control="{
-  show: true, 
+  show: true,
   position: 'top-left'
 }"
 :scale-control="{
@@ -174,7 +174,7 @@ Events can be used by prepending `map-` to the beginning of the Mapbox event. Fo
 
 All events are passed the `map` object and the event if it has one.
 
-Example: 
+Example:
 
 HTML File:
 ```html
@@ -259,7 +259,7 @@ The "User Interface" plugins ([https://www.mapbox.com/mapbox-gl-js/plugins/](htt
       zoom: 3
   }"
   :geolocate-control="{
-      show: true, 
+      show: true,
       position: 'top-left'
   }"
   :scale-control="{
