@@ -239,7 +239,7 @@ const app = new Vue({
       alert('Map Clicked!');
     },
   }
-]);
+});
 ```
 
 `map-init` : This event is fired when the map is initialized. It can be used to integrate plugins such as Mapbox Draw.
@@ -286,7 +286,7 @@ const app = new Vue({
       map.addControl(Draw);
     }
   }
-]);
+});
 ```
 
 ### Popups
