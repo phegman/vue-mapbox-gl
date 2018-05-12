@@ -29,7 +29,13 @@
 			    }"
 				:geolocate-control="{
 					show: true, 
-					position: 'top-left'
+					position: 'top-left',
+					options: {
+						positionOptions: {
+							enableHighAccuracy: true
+						},
+						trackUserLocation: true
+					}
 				}"
 				:scale-control="{
 					show: true,
@@ -42,10 +48,15 @@
 				@map-init="mapInit"
 				@map-load="mapLoaded"
 				@map-click="mapClicked"
-				@map-mousemove="mapMouseMoved">
+				@map-mousemove="mapMouseMoved"
+				@geolocate-geolocate="geolocate"
+				@geolocate-error="geolocateError"
+				@geolocate-trackuserlocationstart="geolocateStart"
+				@geolocate-trackuserlocationend="geolocateEnd"
+				>
 			</mapbox>
 		</div><!-- /#app -->
 		<script src="https://unpkg.com/vue"></script>
-		<script src="/dist/app.js"></script>
+		<script src="dist/app.js"></script>
     </body>
 </html>

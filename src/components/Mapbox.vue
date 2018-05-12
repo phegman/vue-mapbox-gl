@@ -316,6 +316,22 @@
 				if (this.geolocateControl.show) {
 					const geolocate = new mapboxgl.GeolocateControl(this.geolocateControl.options);
 					map.addControl(geolocate, this.geolocateControl.position);
+
+					geolocate.on('geolocate', position => {
+						this.$emit('geolocate-geolocate', geolocate, position);
+					});
+
+					geolocate.on('trackuserlocationstart', () => {
+						this.$emit('geolocate-trackuserlocationstart', geolocate);
+					});
+
+					geolocate.on('trackuserlocationend', () => {
+						this.$emit('geolocate-trackuserlocationend', geolocate);
+					});
+
+					geolocate.on('error', positionError => {
+						this.$emit('geolocate-error', geolocate, positionError);
+					});
 				}
 
 				//Scale Control
