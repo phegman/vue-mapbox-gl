@@ -440,6 +440,8 @@ exports.default = {
 			});
 		},
 		addControls: function addControls(map) {
+			var _this2 = this;
+
 			//Nav Control
 			if (this.navControl.show) {
 				var nav = new mapboxgl.NavigationControl();
@@ -450,6 +452,22 @@ exports.default = {
 			if (this.geolocateControl.show) {
 				var geolocate = new mapboxgl.GeolocateControl(this.geolocateControl.options);
 				map.addControl(geolocate, this.geolocateControl.position);
+
+				geolocate.on('geolocate', function (position) {
+					_this2.$emit('geolocate-geolocate', geolocate, position);
+				});
+
+				geolocate.on('trackuserlocationstart', function () {
+					_this2.$emit('geolocate-trackuserlocationstart', geolocate);
+				});
+
+				geolocate.on('trackuserlocationend', function () {
+					_this2.$emit('geolocate-trackuserlocationend', geolocate);
+				});
+
+				geolocate.on('error', function (positionError) {
+					_this2.$emit('geolocate-error', geolocate, positionError);
+				});
 			}
 
 			//Scale Control
@@ -538,6 +556,18 @@ var app = new Vue({
 		mapMouseMoved: function mapMouseMoved(map, e) {
 			var features = map.queryRenderedFeatures(e.point, { layers: ['points'] });
 			map.getCanvas().style.cursor = features.length ? 'pointer' : '';
+		},
+		geolocate: function geolocate(control, position) {
+			console.log('User position: ' + position.coords.latitude + ', ' + position.coords.longitude);
+		},
+		geolocateError: function geolocateError(control, positionError) {
+			console.log(positionError);
+		},
+		geolocateStart: function geolocateStart(control) {
+			console.log('geolocate started');
+		},
+		geolocateEnd: function geolocateEnd(control) {
+			console.log('geolocate ended');
 		},
 		addPopUp: function addPopUp(map, e) {
 			var features = map.queryRenderedFeatures(e.point, { layers: ['points'] });

@@ -57,10 +57,10 @@ const app = new Vue({
 			map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
 		},
 		geolocate(control, position) {
-			console.log('User position:' + position);
+			console.log(`User position: ${position.coords.latitude}, ${position.coords.longitude}`);
 		},
 		geolocateError(control, positionError) {
-			console.log('Position Error:' + positionError);
+			console.log(positionError);
 		},
 		geolocateStart(control) {
 			console.log('geolocate started');
