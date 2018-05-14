@@ -56,6 +56,18 @@ const app = new Vue({
 			const features = map.queryRenderedFeatures(e.point, { layers: ['points'] });
 			map.getCanvas().style.cursor = (features.length) ? 'pointer' : '';
 		},
+		geolocate(control, position) {
+			console.log(`User position: ${position.coords.latitude}, ${position.coords.longitude}`);
+		},
+		geolocateError(control, positionError) {
+			console.log(positionError);
+		},
+		geolocateStart(control) {
+			console.log('geolocate started');
+		},
+		geolocateEnd(control) {
+			console.log('geolocate ended');
+		},
 		addPopUp(map, e) {
 			const features = map.queryRenderedFeatures(e.point, { layers: ['points'] });
 			if (!features.length) {

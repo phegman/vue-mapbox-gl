@@ -170,9 +170,17 @@ access-token="your access token"
 
 All Mapbox GL JS events are available for use. For a list of events look here: [https://www.mapbox.com/mapbox-gl-js/api/#map.event:resize](https://www.mapbox.com/mapbox-gl-js/api/#map.event:resize)
 
-Events can be used by prepending `map-` to the beginning of the Mapbox event. For example for the Mapbox `click` event `@map-click` can be used.
+Map and control events can be used by adding a prefix introduced in the following table to the beginning of the Mapbox event name.
 
-All events are passed the `map` object and the event if it has one.
+| Object | Prefix |
+|  ----- | ------ |
+| Map    | `map-` |
+| GeolocateControl | `geolocate-` |
+
+For example for the Mapbox Map `click` event `@map-click` can be used and for the GeolocateControl geolocate event `@geolocate-geolocate` can be used.
+
+All events are passed the `map` or `control` object and the event or position object if it has one.
+
 
 Example:
 
@@ -183,6 +191,8 @@ HTML File:
   <mapbox
     @map-load="mapLoaded"
     @map-click="mapClicked"
+    @geolocate-error="geolocateError"
+    @geolocate-geolocate="geolocate"
   >
   </mapbox>
 </div>
@@ -238,6 +248,12 @@ const app = new Vue({
     mapClicked(map, e) {
       alert('Map Clicked!');
     },
+    geolocateError(control, positionError) {
+      console.log(positionError);
+    },
+    geolocate(control, position) {
+      console.log(`User position: ${position.coords.latitude}, ${position.coords.longitude}`);
+    }
   }
 });
 ```
