@@ -444,7 +444,7 @@ exports.default = {
 
 			//Nav Control
 			if (this.navControl.show) {
-				var nav = new mapboxgl.NavigationControl();
+				var nav = new mapboxgl.NavigationControl(this.navControl.options);
 				map.addControl(nav, this.navControl.position);
 			}
 
