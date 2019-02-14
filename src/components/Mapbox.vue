@@ -308,7 +308,7 @@
 			addControls (map) {
 				//Nav Control
 				if (this.navControl.show) {
-					const nav = new mapboxgl.NavigationControl();
+					const nav = new mapboxgl.NavigationControl(this.navControl.options);
 					map.addControl(nav, this.navControl.position);
 				}
 
