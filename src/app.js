@@ -77,12 +77,12 @@ const app = new Vue({
 			const feature = features[0];
 
 			const popupContent = Vue.extend({
-				template: '<button @click="popupClicked">Click Me!</button>',
 				methods: {
 					popupClicked() {
 						alert('Popup Clicked!');
 					},
-				}
+				},
+				template: '<button @click="popupClicked">Click Me!</button>'
 			});
 
 			// Populate the popup and set its coordinates

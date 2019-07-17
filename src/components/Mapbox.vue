@@ -1,14 +1,10 @@
 <template>
-	<div :id="(mapOptions.hasOwnProperty('container') ? mapOptions.container : 'map')"></div>
+  <div :id="(mapOptions.hasOwnProperty('container') ? mapOptions.container : 'map')" />
 </template>
 
 <script>
 	export default {
-		data () {
-			return {
-				_map: null
-			};
-		},
+    name: 'MapboxMap',
 		props: {
 			accessToken: {
 				type: String,
@@ -57,12 +53,17 @@
 				}
 			}
 		},
+		data () {
+			return {
+				localMap: null
+			};
+		},
 		mounted () {
 			//Initialze Map
 			const map = this.mapInit();
 
 			//Save map object to data
-			this._map = map;
+			this.localMap = map;
 
 			//Add Controls to map
 			this.addControls(map);
@@ -70,8 +71,11 @@
 			//Register Map Events
 			this.registerEvents(map);
 		},
+		beforeDestroy() {
+			this.localMap.remove();
+		},
 		methods: {
-			mapInit () {
+			mapInit() {
 				//Mapbox GL access token
 				mapboxgl.accessToken = this.accessToken;
 
@@ -88,7 +92,7 @@
 
 				return map;
 			},
-			registerEvents (map) {
+			registerEvents(map) {
 				//Map Loaded
 				map.on('load', () => {
 					this.$emit('map-load', map);
@@ -114,7 +118,7 @@
 					this.$emit('map-resize', map);
 				});
 
-				//Map Webgl Context Lost 
+				//Map Webgl Context Lost
 				map.on('webglcontextlost', e => {
 					this.$emit('map-webglcontextlost', map, e);
 				});
@@ -305,7 +309,7 @@
 				});
 
 			},
-			addControls (map) {
+			addControls(map) {
 				//Nav Control
 				if (this.navControl.show) {
 					const nav = new mapboxgl.NavigationControl(this.navControl.options);
@@ -347,9 +351,6 @@
 				}
 
 			}
-		},
-		beforeDestroy() { 
-			this._map.remove();
 		}
 	};
 </script>
