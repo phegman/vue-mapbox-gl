@@ -1,6 +1,6 @@
 const path = require('path');
-const webpack = require('webpack');
 const merge = require('webpack-merge');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 var config = {
 	output: {
@@ -21,7 +21,10 @@ var config = {
 				}
 			}
 		]
-	}
+  },
+  plugins: [
+    new VueLoaderPlugin()
+  ]
 };
 
 module.exports = [
