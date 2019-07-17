@@ -4,18 +4,17 @@
   "description": "A Vue.js component for Mapbox GL js",
   "main": "dist/Mapbox.js",
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.24.1",
-    "babel-loader": "^7.0.0",
-    "babel-preset-env": "^1.5.1",
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
+    "babel-loader": "^7.1.5",
     "eslint": "^3.19.0",
     "eslint-config-vue": "^2.0.2",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-vue": "^2.0.1",
     "vue-loader": "^13.5.0",
     "vue-template-compiler": "^2.5.9",
-    "webpack": "^2.6.1",
-    "webpack-merge": "^4.1.1"
+    "webpack": "^2.7.0",
+    "webpack-merge": "^4.2.1"
   },
   "scripts": {
     "build": "node_modules/.bin/webpack",
