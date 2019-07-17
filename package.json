@@ -20,6 +20,8 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js --mode production",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "prepublishOnly": "npm run build"
   },
   "repository": {
