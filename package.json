@@ -19,7 +19,7 @@
     "webpack-merge": "^4.2.1"
   },
   "scripts": {
-    "build": "node_modules/.bin/webpack",
+    "build": "webpack --config webpack.config.js --mode production",
     "prepublishOnly": "npm run build"
   },
   "repository": {
