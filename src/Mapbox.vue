@@ -23,12 +23,11 @@ import {
   MapLayerEventType,
 } from 'mapbox-gl'
 import mapboxgl from 'mapbox-gl'
-import ScaleControl from './interfaces/scale-control-options.interface'
+import ScaleControlOptions from './interfaces/scale-control-options.interface'
 import AttributionControl from './interfaces/attribution-control-options.interface'
 import GeolocateControlOptions from './interfaces/geolocate-control-options.interface'
 import NavigationControlOptions from './interfaces/navigation-control-options.interface'
 import FullscreenControlOptions from './interfaces/navigation-control-options.interface'
-import ScaleControlOptions from './interfaces/scale-control-options.interface'
 
 @Component
 export default class Mapbox extends Vue {
