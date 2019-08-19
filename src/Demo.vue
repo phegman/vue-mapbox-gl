@@ -1,6 +1,6 @@
 <template>
   <mapbox
-    access-token="***REMOVED***"
+    :access-token="process.env.ACCESS_TOKEN"
     :map-options="{
       style: 'mapbox://styles/mapbox/light-v9',
       center: [-96, 37.8],
