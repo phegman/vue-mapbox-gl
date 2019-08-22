@@ -90,7 +90,7 @@ Your access token is required for Mapbox to work. It can be obtained in the Mapb
 ---
 
 `map-options`  
- Type: `[MapboxOptions](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/ecb7a34d7a93504d556f3e281baa7e4d4080317e/types/mapbox-gl/index.d.ts#L252)`  
+ Type: [MapboxOptions](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/ecb7a34d7a93504d556f3e281baa7e4d4080317e/types/mapbox-gl/index.d.ts#L252)  
  Required: `true`
 
 Overview of available Mapbox options can be found here: [https://www.mapbox.com/mapbox-gl-js/api/#map](https://www.mapbox.com/mapbox-gl-js/api/#map)
@@ -100,7 +100,7 @@ mapOptions.container will default to 'map' (giving the container an id of 'map')
 ---
 
 `nav-control`  
- Type: `NavigationControlOptions`  
+ Type: [NavigationControlOptions](https://github.com/phegman/vue-mapbox-gl/blob/master/src/interfaces/navigation-control-options.interface.ts)  
  Required: `false`  
  Default: `{ show: true, position: 'top-right' }`
 
@@ -109,7 +109,7 @@ More information about navigation control here: [https://docs.mapbox.com/mapbox-
 ---
 
 `geolocate-control`  
- Type: `GeolocateControlOptions`  
+ Type: [GeolocateControlOptions](https://github.com/phegman/vue-mapbox-gl/blob/master/src/interfaces/geolocate-control-options.interface.ts)  
  Required: `false`  
  Default: `{ show: false, position: 'top-left', options: {} }`
 
@@ -118,7 +118,7 @@ More information about geolocate control here: [https://docs.mapbox.com/mapbox-g
 ---
 
 `scale-control`  
- Type: `ScaleControlOptions`  
+ Type: [ScaleControlOptions](https://github.com/phegman/vue-mapbox-gl/blob/master/src/interfaces/scale-control-options.interface.ts)  
  Required: `false`  
  Default: `{ show: false, position: 'top-left', options: {} }`
 
@@ -127,7 +127,7 @@ More information about scale control here: [https://docs.mapbox.com/mapbox-gl-js
 ---
 
 `fullscreen-control`  
- Type: `FullscreenControlOptions`  
+ Type: [FullscreenControlOptions](https://github.com/phegman/vue-mapbox-gl/blob/master/src/interfaces/fullscreen-control-options.interface.ts)  
  Required: `false`  
  Default: `{ show: false, position: 'top-right' }`
 
@@ -136,7 +136,7 @@ More information about full screen control here: [https://docs.mapbox.com/mapbox
 ---
 
 `attribution-control`  
- Type: `AttributionControlOptions`  
+ Type: [AttributionControlOptions](https://github.com/phegman/vue-mapbox-gl/blob/master/src/interfaces/attribution-control-options.interface.ts)  
  Required: `false`  
  Default: `{ show: false, position: 'top-right' }`
 
@@ -177,11 +177,7 @@ More information about full screen control here: [https://docs.mapbox.com/mapbox
 
 All Mapbox GL JS events are available for use. List of events here: [https://docs.mapbox.com/mapbox-gl-js/api/#map.event:resize](https://docs.mapbox.com/mapbox-gl-js/api/#map.event:resize)
 
-Map events can be used by adding the `@map-` prefix to the beginning of the Mapbox event name.
-
-For example for the `click` event `@map-click` can be used.
-
-All events are passed the mapboxgl `[Map](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/ecb7a34d7a93504d556f3e281baa7e4d4080317e/types/mapbox-gl/index.d.ts#L60)` instance as the first parameter and, if the event has one, the `[MapboxEvent](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/ecb7a34d7a93504d556f3e281baa7e4d4080317e/types/mapbox-gl/index.d.ts#L1117)` as the second parameter.
+Map events can be used by adding the `@map-` prefix to the beginning of the Mapbox event name. For example for the `click` event `@map-click` can be used. All events are passed the mapboxgl [Map](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/ecb7a34d7a93504d556f3e281baa7e4d4080317e/types/mapbox-gl/index.d.ts#L60) instance as the first parameter and, if the event has one, the [MapboxEvent](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/ecb7a34d7a93504d556f3e281baa7e4d4080317e/types/mapbox-gl/index.d.ts#L1117) as the second parameter.
 
 For events that support specifying a `layerId` as documented here [https://docs.mapbox.com/mapbox-gl-js/api/#map#on](https://docs.mapbox.com/mapbox-gl-js/api/#map#on) the `layerId` can be specified by using a colon to separate the event from the `layerId`. For example if you have a layer with an id of `points` the `click` event can be registered like so: `@map-click:points`
 
