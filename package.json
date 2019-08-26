@@ -50,11 +50,11 @@
   },
   "scripts": {
     "build": "rimraf dist & yarn build:umd & yarn build:es & yarn build:unpkg & yarn build:demo",
-    "build:umd": "rollup --config rollup.config.js --format umd --file dist/vue-mapbox-gl.umd.js --environment BUILD:prod",
-    "build:es": "rollup --config rollup.config.js --format es --file dist/vue-mapbox-gl.esm.js --environment BUILD:prod",
-    "build:unpkg": "rollup --config rollup.config.js --format iife --file dist/vue-mapbox-gl.min.js --environment BUILD:prod",
-    "build:demo": "rollup --config rollup.config.js --format iife --file dist/demo.min.js --environment BUILD:demo",
-    "serve": "rimraf dist & rollup --config rollup.config.js --format iife --file dist/demo.min.js --environment BUILD:dev --watch"
+    "build:umd": "rollup --config rollup.config.js --format umd --file dist/vue-mapbox-gl.umd.js --environment BUILD:prod,FORMAT:umd",
+    "build:es": "rollup --config rollup.config.js --format es --file dist/vue-mapbox-gl.esm.js --environment BUILD:prod,FORMAT:es",
+    "build:unpkg": "rollup --config rollup.config.js --format iife --file dist/vue-mapbox-gl.min.js --environment BUILD:prod,FORMAT:iife",
+    "build:demo": "rollup --config rollup.config.js --format iife --file dist/demo.min.js --environment BUILD:demo,FORMAT:iife",
+    "serve": "rimraf dist & rollup --config rollup.config.js --format iife --file dist/demo.min.js --environment BUILD:dev,FORMAT:iife --watch"
   },
   "dependencies": {
     "@mapbox/mapbox-gl-draw": "^1.1.2",

@@ -37,8 +37,15 @@ export default {
             template: 'src/index.html',
             target: 'index.html',
           }),
+        ]
+      : []),
+    ...(process.env.FORMAT === 'iife'
+      ? [
           replace({
-            'process.env.NODE_ENV': JSON.stringify('development'),
+            'process.env.NODE_ENV':
+              process.env.BUILD === 'prod'
+                ? JSON.stringify('production')
+                : JSON.stringify('development'),
             'process.env.VUE_ENV': JSON.stringify('browser'),
           }),
         ]
