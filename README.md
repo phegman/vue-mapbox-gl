@@ -4,16 +4,26 @@ A simple lightweight (9kb/3kb gzipped) Mapbox GL JS Vue component. Great for qui
 
 ## Installation
 
+### Yarn
+
+```bash
+yarn add mapbox-gl-vue
+```
+
 ### NPM
 
 ```bash
 npm install mapbox-gl-vue --save
 ```
 
-### Yarn
+### [Vue CDN](https://vuejs.org/v2/guide/#Getting-Started)
 
-```bash
-yarn add mapbox-gl-vue
+Download latest `vue-mapbox-gl.min.js` from [https://github.com/phegman/vue-mapbox-gl/releases](https://github.com/phegman/vue-mapbox-gl/releases)
+
+Include using a `<script>` tag
+
+```html
+<script src="vue-mapbox-gl.min.js"></script>
 ```
 
 ### Including Mapbox GL JS
@@ -22,7 +32,9 @@ This package does not include the Mapbox GL JS and CSS files. See Mapbox GL JS i
 
 #### Importing Mapbox GL JS with Webpack
 
-If you decide to include Mapbox GL JS by importing it with Webpack you should use [Shimming](https://webpack.js.org/guides/shimming/) for it to work correctly. Add the below to your `webpack.config.js` file:
+If you decide to include Mapbox GL JS by installing it with Yarn/NPM you should use [Shimming](https://webpack.js.org/guides/shimming/) for it to work correctly.
+
+`webpack.config.js`
 
 ```js
 plugins: [
@@ -30,6 +42,24 @@ plugins: [
     mapboxgl: 'mapbox-gl',
   }),
 ]
+```
+
+Projects setup with [Vue CLI 3](https://cli.vuejs.org/):
+
+`vue.config.js`
+
+```js
+const webpack = require('webpack')
+
+module.exports = {
+  configureWebpack: {
+    plugins: [
+      new webpack.ProvidePlugin({
+        mapboxgl: 'mapbox-gl',
+      }),
+    ],
+  },
+}
 ```
 
 ## Usage
@@ -59,7 +89,14 @@ In your template block:
 ```vue
 <template>
   <div id="app">
-    <mapbox access-token="your access token" />
+    <mapbox
+      access-token="your access token"
+      :map-options="{
+        style: 'mapbox://styles/mapbox/light-v9',
+        center: [-96, 37.8],
+        zoom: 3,
+      }"
+    />
   </div>
 </template>
 ```
@@ -193,6 +230,16 @@ Geolocation events are available for use by adding the `@geolocate` prefix to th
 <template>
   <div id="app">
     <mapbox
+      access-token="your access token"
+      :map-options="{
+        style: 'mapbox://styles/mapbox/light-v9',
+        center: [-96, 37.8],
+        zoom: 3,
+      }"
+      :geolocate-control="{
+        show: true,
+        position: 'top-left',
+      }"
       @map-load="loaded"
       @map-zoomend="zoomend"
       @map-click:points="clicked"
@@ -334,6 +381,12 @@ Popups can be a bit tricky if you are trying to use Vue directives inside the po
 <template>
   <div id="app">
     <mapbox
+      access-token="your access token"
+      :map-options="{
+        style: 'mapbox://styles/mapbox/light-v9',
+        center: [-96, 37.8],
+        zoom: 3,
+      }"
       @map-load="loaded"
       @map-click:points="clicked"
       @map-mouseenter:points="mouseEntered"
@@ -408,9 +461,9 @@ export default {
           .setHTML('<div id="vue-popup-content"></div>')
           .addTo(map)
 
-        new PopupContent({ propsData: { feature: e.features[0] } }).$mount(
-          '#vue-popup-content'
-        )
+        new PopupContent({
+          propsData: { feature: e.features[0] },
+        }).$mount('#vue-popup-content')
       }
     },
     mouseEntered(map) {
@@ -442,13 +495,20 @@ export default {
 </template>
 
 <script>
-export default {
+import Vue from 'vue'
+export default Vue.extend({
+  props: {
+    feature: {
+      required: true,
+      type: Object,
+    },
+  },
   methods: {
     popupClicked() {
       alert('Learn more clicked')
     },
   },
-}
+})
 </script>
 ```
 
