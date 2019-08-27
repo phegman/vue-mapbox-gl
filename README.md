@@ -132,7 +132,7 @@ Your access token is required for Mapbox to work. It can be obtained in the Mapb
 
 Overview of available Mapbox options can be found here: [https://www.mapbox.com/mapbox-gl-js/api/#map](https://www.mapbox.com/mapbox-gl-js/api/#map)
 
-mapOptions.container will default to 'map' (giving the container an id of 'map'). If you want to change this or use multiple map components on the same page simply set mapOptions.container.
+`container` will default to `map` (giving the container an id of `map`). If you want to change this or use multiple map components on the same page simply set the `container` property.
 
 ---
 
@@ -220,7 +220,7 @@ For events that support specifying a `layerId` as documented here [https://docs.
 
 ### Geolocation Events
 
-Geolocation events are available for use by adding the `@geolocate` prefix to the beginning of the Mapbox event name. A list of Geolocation events can be found here: [https://docs.mapbox.com/mapbox-gl-js/api/#geolocatecontrol.event:geolocate](https://docs.mapbox.com/mapbox-gl-js/api/#geolocatecontrol.event:geolocate)
+Geolocation events are available for use by adding the `@geolocate-` prefix to the beginning of the Mapbox event name. A list of Geolocation events can be found here: [https://docs.mapbox.com/mapbox-gl-js/api/#geolocatecontrol.event:geolocate](https://docs.mapbox.com/mapbox-gl-js/api/#geolocatecontrol.event:geolocate)
 
 #### Example
 
@@ -369,6 +369,13 @@ export default {
   },
 }
 </script>
+
+<style>
+#map {
+  width: 100%;
+  height: 500px;
+}
+</style>
 ```
 
 ### Popups
