@@ -1,7 +1,9 @@
 language: node_js
 node_js:
   - '10'
-script: yarn build
+script:
+  - yarn lint
+  - yarn build
 deploy:
   - provider: npm
     email: $NPM_EMAIL
