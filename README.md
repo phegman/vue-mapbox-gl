@@ -2,6 +2,15 @@
 
 A simple lightweight (9kb/3kb gzipped) Mapbox GL JS Vue component. Great for quick prototyping or smaller projects. For larger projects [VueMapbox](https://soal.github.io/vue-mapbox/) may be a better fit.
 
+## [Demo](https://vue-mapbox-gl.peterhegman.com)
+
+- [Installation](#installation)
+- [Setup](#setup)
+- [Props](#props)
+- [Events](#map-events)
+- [Plugins](#plugins)
+- [Popups](#popups)
+
 ## Installation
 
 ### Yarn
@@ -62,15 +71,7 @@ module.exports = {
 }
 ```
 
-## Usage
-
-- [Setup](#setup)
-- [Props](#props)
-- [Events](#map-events)
-- [Plugins](#plugins)
-- [Popups](#popups)
-
-### Setup
+## Setup
 
 In the file you will be including the component:
 
@@ -114,7 +115,7 @@ CSS needs to be added for the map to show up. The `#map` container needs a heigh
 </style>
 ```
 
-### Props
+## Props
 
 Vue.js Documentation [https://vuejs.org/v2/guide/components.html#Props](https://vuejs.org/v2/guide/components.html#Props)
 
@@ -208,7 +209,7 @@ More information about full screen control here: [https://docs.mapbox.com/mapbox
 </template>
 ```
 
-### Map Events
+## Map Events
 
 `@map-init` : This event is fired when the map is initialized. It can be used to integrate [plugins](https://docs.mapbox.com/mapbox-gl-js/plugins/).
 
@@ -218,7 +219,7 @@ Map events can be used by adding the `@map-` prefix to the beginning of the Mapb
 
 For events that support specifying a `layerId` as documented here [https://docs.mapbox.com/mapbox-gl-js/api/#map#on](https://docs.mapbox.com/mapbox-gl-js/api/#map#on) the `layerId` can be specified by using a colon to separate the event from the `layerId`. For example if you have a layer with an id of `points` the `click` event can be registered like so: `@map-click:points`
 
-### Geolocation Events
+## Geolocation Events
 
 Geolocation events are available for use by adding the `@geolocate-` prefix to the beginning of the Mapbox event name. A list of Geolocation events can be found here: [https://docs.mapbox.com/mapbox-gl-js/api/#geolocatecontrol.event:geolocate](https://docs.mapbox.com/mapbox-gl-js/api/#geolocatecontrol.event:geolocate)
 
@@ -325,7 +326,7 @@ export default {
 </style>
 ```
 
-### Plugins
+## Plugins
 
 Plugins ([https://www.mapbox.com/mapbox-gl-js/plugins/](https://www.mapbox.com/mapbox-gl-js/plugins/)) can be integrated using the `map-init` event that is fired when Mapbox is initialized. Below is an example:
 
@@ -378,7 +379,7 @@ export default {
 </style>
 ```
 
-### Popups
+## Popups
 
 Popups can be a bit tricky if you are trying to use Vue directives inside the popup content. This is because the popups are added to the DOM by Mapbox and not compiled by Vue. See below for one approach to solving this problem.
 
