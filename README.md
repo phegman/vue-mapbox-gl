@@ -46,6 +46,8 @@ If you decide to include Mapbox GL JS by installing it with Yarn/NPM you should 
 `webpack.config.js`
 
 ```js
+const webpack = require('webpack')
+
 plugins: [
   new webpack.ProvidePlugin({
     mapboxgl: 'mapbox-gl',
