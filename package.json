@@ -1,25 +1,12 @@
 {
   "name": "mapbox-gl-vue",
-  "version": "1.9.0",
+  "version": "2.0.0",
   "description": "A Vue.js component for Mapbox GL js",
-  "main": "dist/Mapbox.js",
-  "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.24.1",
-    "babel-loader": "^7.0.0",
-    "babel-preset-env": "^1.5.1",
-    "eslint": "^3.19.0",
-    "eslint-config-vue": "^2.0.2",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-vue": "^2.0.1",
-    "vue-loader": "^13.5.0",
-    "vue-template-compiler": "^2.5.9",
-    "webpack": "^2.6.1",
-    "webpack-merge": "^4.1.1"
-  },
-  "scripts": {
-    "build": "node_modules/.bin/webpack",
-    "prepublishOnly": "npm run build"
+  "main": "dist/vue-mapbox-gl.umd.js",
+  "module": "dist/vue-mapbox-gl.esm.js",
+  "unpkg": "dist/vue-mapbox-gl.min.js",
+  "browser": {
+    "./sfc": "src/Mapbox.vue"
   },
   "repository": {
     "type": "git",
@@ -34,5 +21,49 @@
   ],
   "author": "Peter Hegman",
   "license": "GPL-3.0",
-  "dependencies": {}
+  "devDependencies": {
+    "@types/mapbox-gl": "^0.54.1",
+    "@typescript-eslint/parser": "^1.13.0",
+    "@vue/eslint-config-prettier": "^5.0.0",
+    "@vue/eslint-config-typescript": "^4.0.0",
+    "eslint": "^6.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-vue": "^5.2.3",
+    "husky": "^3.0.3",
+    "prettier": "1.18.2",
+    "pretty-quick": "^1.11.1",
+    "rimraf": "^2.6.3",
+    "rollup": "^1.19.2",
+    "rollup-plugin-commonjs": "^10.0.2",
+    "rollup-plugin-generate-html-template": "^1.2.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-serve": "^1.0.1",
+    "rollup-plugin-terser": "^5.1.1",
+    "rollup-plugin-typescript2": "^0.22.1",
+    "rollup-plugin-vue": "^5.0.1",
+    "typescript": "^3.5.3",
+    "vue": "^2.6.10",
+    "vue-class-component": "^7.1.0",
+    "vue-property-decorator": "^8.2.1",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "scripts": {
+    "build": "rimraf dist & yarn build:umd & yarn build:es & yarn build:unpkg & yarn build:demo",
+    "build:umd": "rollup --config rollup.config.js --format umd --file dist/vue-mapbox-gl.umd.js --environment BUILD:prod,FORMAT:umd",
+    "build:es": "rollup --config rollup.config.js --format es --file dist/vue-mapbox-gl.esm.js --environment BUILD:prod,FORMAT:es",
+    "build:unpkg": "rollup --config rollup.config.js --format iife --file dist/vue-mapbox-gl.min.js --environment BUILD:prod,FORMAT:iife",
+    "build:demo": "rollup --config rollup.config.js --format iife --file dist/demo.min.js --environment BUILD:demo,FORMAT:iife",
+    "serve": "rimraf dist & rollup --config rollup.config.js --format iife --file dist/demo.min.js --environment BUILD:dev,FORMAT:iife --watch",
+    "lint": "./node_modules/.bin/eslint src/**/*.{vue,ts}"
+  },
+  "dependencies": {
+    "@mapbox/mapbox-gl-draw": "^1.1.2",
+    "mapbox-gl": "^1.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
 }

@@ -1,0 +1,27 @@
+language: node_js
+node_js:
+  - '10'
+script:
+  - yarn lint
+  - yarn build
+deploy:
+  - provider: npm
+    email: $NPM_EMAIL
+    api_key: $NPM_TOKEN
+    skip_cleanup: true
+    on:
+      tags: true
+  - provider: releases
+    api_key: $GITHUB_OAUTH_TOKEN
+    file_glob: true
+    file: dist/*
+    skip_cleanup: true
+    on:
+      tags: true
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_PAGES_TOKEN
+    local_dir: dist
+    fqdn: vue-mapbox-gl.peterhegman.com
+    on:
+      branch: master

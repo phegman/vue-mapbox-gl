@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "sourceMap": true,
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "target": "es5",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "declaration": true
+  }
+}
