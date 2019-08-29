@@ -9,20 +9,14 @@
 </template>
 
 <script lang="ts">
+declare global {
+  const mapboxgl: typeof mapboxgl
+}
+
 import Vue from 'vue'
 import Component from 'vue-class-component'
 import { Prop, Emit } from 'vue-property-decorator'
 
-import {
-  Map,
-  EventData,
-  MapEventType,
-  MapboxOptions,
-  GeolocateControl,
-  FullscreenControl,
-  MapLayerEventType,
-} from 'mapbox-gl'
-import mapboxgl from 'mapbox-gl'
 import ScaleControlOptions from './interfaces/scale-control-options.interface'
 import AttributionControl from './interfaces/attribution-control-options.interface'
 import GeolocateControlOptions from './interfaces/geolocate-control-options.interface'
@@ -32,7 +26,7 @@ import FullscreenControlOptions from './interfaces/navigation-control-options.in
 @Component
 export default class Mapbox extends Vue {
   @Prop({ required: true }) readonly accessToken: string
-  @Prop({ required: true }) readonly mapOptions: MapboxOptions
+  @Prop({ required: true }) readonly mapOptions: mapboxgl.MapboxOptions
   @Prop({
     default: () => {
       return {
@@ -88,7 +82,7 @@ export default class Mapbox extends Vue {
   })
   readonly attributionControl!: AttributionControl
 
-  private map!: Map
+  private map!: mapboxgl.Map
 
   mounted(): void {
     // Initialze Map
@@ -106,7 +100,7 @@ export default class Mapbox extends Vue {
   }
 
   @Emit()
-  mapInit(): Map {
+  mapInit(): mapboxgl.Map {
     mapboxgl.accessToken = this.accessToken
 
     // Add container to options object
@@ -120,7 +114,7 @@ export default class Mapbox extends Vue {
     return map
   }
 
-  registerMapEvents(map: Map): void {
+  registerMapEvents(map: mapboxgl.Map): void {
     const availableEvents: string[] = [
       'error',
       'load',
@@ -198,7 +192,7 @@ export default class Mapbox extends Vue {
             availableEventsWithLayerSupport.indexOf(parsedEventType) > -1
           ) {
             map.on(
-              parsedEventType as keyof MapLayerEventType,
+              parsedEventType as keyof mapboxgl.MapLayerEventType,
               layerId,
               event => {
                 this.$emit(eventType, map, event)
@@ -214,7 +208,7 @@ export default class Mapbox extends Vue {
     }
   }
 
-  addControls(map: Map): void {
+  addControls(map: mapboxgl.Map): void {
     // Nav Control
     if (this.navControl.show) {
       const nav = new mapboxgl.NavigationControl(this.navControl.options)

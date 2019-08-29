@@ -1,6 +1,6 @@
 <template>
   <mapbox
-    :access-token="process.env.ACCESS_TOKEN"
+    :access-token="accessToken"
     :map-options="{
       style: 'mapbox://styles/mapbox/light-v9',
       center: [-96, 37.8],
@@ -34,6 +34,7 @@ import { Point } from 'geojson'
 import mapboxgl from 'mapbox-gl'
 import Mapbox from './Mapbox.vue'
 import Component from 'vue-class-component'
+import { Prop } from 'vue-property-decorator'
 import PopupContent from './PopupContent.vue'
 // @ts-ignore TypeScript definitions for mapbox-gl-draw not yet available
 import MapboxDraw from '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw'
@@ -43,6 +44,8 @@ import { Map, MapLayerMouseEvent, GeolocateControl } from 'mapbox-gl'
   components: { Mapbox },
 })
 export default class Demo extends Vue {
+  @Prop({ required: true }) readonly accessToken: string
+
   initalized(map: Map): void {
     console.log('Map Initalized')
 
@@ -136,7 +139,7 @@ export default class Demo extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 #map {
   width: 100%;
   height: 500px;
