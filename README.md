@@ -10,6 +10,7 @@ A simple lightweight (9kb/3kb gzipped) Mapbox GL JS Vue component. Great for qui
 - [Events](#map-events)
 - [Plugins](#plugins)
 - [Popups](#popups)
+- [Development](#development)
 
 ## Installation
 
@@ -522,10 +523,26 @@ export default Vue.extend({
 </script>
 ```
 
-## Support
+## Development
 
-Please [open an issue](https://github.com/phegman/mapbox-gl-vue.js/issues) for support.
+### Install dependencies
 
-## Contributing
+```bash
+yarn install
+```
 
-Please contribute using [Github Flow](https://guides.github.com/introduction/flow/). Create a branch, add commits, and [open a pull request](https://github.com/phegman/mapbox-gl-vue.js/compare).
+### Start development server
+
+This will start a dev server with [HMR](https://webpack.js.org/guides/hot-module-replacement/) at `localhost:8080`.
+
+```bash
+ACCESS_TOKEN=yourAccessToken yarn dev
+```
+
+### Linting
+
+Please make sure all your code passes linting before opening a PR.
+
+```bash
+yarn lint
+```

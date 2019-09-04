@@ -53,7 +53,8 @@
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.7"
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0"
   },
   "scripts": {
     "build": "rimraf dist & yarn build:umd & yarn build:es & yarn build:unpkg & yarn build:demo",
@@ -61,7 +62,8 @@
     "build:es": "rollup --config build-configs/rollup.es.config.js",
     "build:unpkg": "rollup --config build-configs/rollup.iife.config.js",
     "build:demo": "webpack --config build-configs/webpack.demo.config.js --mode production",
-    "lint": "./node_modules/.bin/eslint src/**/*.{vue,ts}"
+    "lint": "./node_modules/.bin/eslint src/**/*.{vue,ts}",
+    "dev": "webpack-dev-server --config build-configs/webpack.demo.config.js --mode development"
   },
   "dependencies": {},
   "husky": {
