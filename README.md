@@ -1,6 +1,6 @@
 # Mapbox GL JS Vue.js
 
-A simple lightweight (9kb/3kb gzipped) Mapbox GL JS Vue component. Great for quick prototyping or smaller projects. For larger projects [VueMapbox](https://soal.github.io/vue-mapbox/) may be a better fit.
+A simple lightweight (9kb/3kb gzipped) Mapbox GL JS Vue component.
 
 ## [Demo](https://vue-mapbox-gl.peterhegman.com)
 
