@@ -14,19 +14,22 @@ A simple lightweight (9kb/3kb gzipped) Mapbox GL JS Vue component.
 
 ## Installation
 
-### Yarn
+### Step 1. Add the package
+To add the new package, use one of the following ways.
+
+#### Yarn
 
 ```bash
 yarn add mapbox-gl-vue
 ```
 
-### NPM
+#### NPM
 
 ```bash
 npm install mapbox-gl-vue --save
 ```
 
-### [Vue CDN](https://vuejs.org/v2/guide/#Getting-Started)
+#### [Vue CDN](https://vuejs.org/v2/guide/#Getting-Started)
 
 Download latest `vue-mapbox-gl.min.js` from [https://github.com/phegman/vue-mapbox-gl/releases](https://github.com/phegman/vue-mapbox-gl/releases)
 
@@ -36,7 +39,7 @@ Include using a `<script>` tag
 <script src="vue-mapbox-gl.min.js"></script>
 ```
 
-### Including Mapbox GL JS
+### Step 2. Including Mapbox GL JS
 
 This package does not include the Mapbox GL JS and CSS files. See Mapbox GL JS installation guide here: [https://www.mapbox.com/install/js/](https://www.mapbox.com/install/js/)
 
